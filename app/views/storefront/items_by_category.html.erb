@@ -1,0 +1,19 @@
+<h1>Items In <%= "#{params[:name]}" %></h1>
+
+ <% @products.each do |product| %>
+ <div class="col-md-4">
+  <div class="well" style = "text-align: center;">
+		<p> <%= "#{product.name}" %><br>
+				<%= "#{product.description}" %><br>
+				Price: <%= number_to_currency "#{product.price}" %><br>
+				
+				<%= image_tag product.image.url, width: "100" %>
+		</p>	
+
+		<%= link_to 'Edit', edit_product_path(product.id) %> |
+		<%= link_to 'Back', products_path %>		
+		</div>	
+	</div>		
+	<% end %>
+	
+
